@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="style.css">
     <title> es: vue-boolzapp</title>
 
@@ -15,69 +15,108 @@
     <div class="background-color-body" id="app">
 
         <div class="contenitore-principale container">
-            <div class="row">
-                <div class="col-4 navchat nomeutente"> 
-                    <img src="img/avatar_io.jpg" class="rounded-circle" alt="img profilo">
-                    <span> <strong>Nome Utente</strong></span>                    
+            <header class="row">
+                <div class="col-4 navchat nome-utente"> 
+                    <div class="row ">
+                        <div class="col-8">
+                            <img src="img/avatar_io.jpg" class="rounded-circle" alt="img profilo">
+                            <span> <strong>Nome Utente</strong></span> 
+                        </div>
+                        <div class="col-4 align-self-center">
+                            <i class="bi bi-chat-left-fill icone"></i>
+                            <i class="bi bi-chat-left-fill icone"></i>
+                            <i class="bi bi-three-dots-vertical icone"></i>
+                        </div>
+                    </div>
                 </div>
-            
-                <div class="col-8 navchat" > 
-                    <img src="img/avatar_2.jpg " class="rounded-circle" alt="immagine">
-                        <span class="nomeUtente"> <strong>Michele</strong> </span>
-                        <p class="ultimoAccesso">Ultimo accesso oggi 15/11/2021 alle ore 12:54</p>
+                <div class="col-8 navchat destra" > 
+                    <div class="row">
+                        <div class="col-10 ">
+                            <img src="img/avatar_2.jpg " class="rounded-circle" alt="immagine">
+                            <span class="nome-utente"> <strong>Michele</strong> </span>
+                            <p class="ultimoAccesso">Ultimo accesso oggi 15/11/2021 alle ore 12:54</p>
+                        </div>
+                        <div class="col-2 align-self-center">
+                            <i class="bi bi-search icone" ></i>
+                            <i class="bi bi-search icone"></i>
+                            <i class="bi bi-three-dots-vertical icone" ></i>
+                        </div>
+                    </div>
                 </div>
-            </div> 
-                
-            <div class=" row justify-content-start">
-                <div class="col-4 notifiche "> 
-                    <p>Ricevi notifiche di nuovi messaggi</p>
-                    <span class="notifiche-desktop">attiva notifiche desktop</span>
+            </header> 
+         
+            <div class=" row justify-content-start ">
+                <div class="col-4 notifiche"> 
+                    <div class="col-12 d-flex align-items-center">
+                        <i class="bi bi-bell-slash-fill margin-left-notifiche"></i>
+                        <div>
+                            <span class="align-middle">Ricevi notifiche di nuovi messaggi</span> 
+                            <p class="notifiche-desktop align-middle">attiva notifiche desktop</p>
+                        </div>
+                    </div> 
                 </div>   
             </div> 
 
             <div class=" row justify-content-start">
-                <div class="col-4 "> <input class="cercaContatti" type="text" placeholder="cerca o inizia una nuova chat"> </div>
+                <div class="col-4 "> <input class="cerca-contatti" type="text" placeholder="cerca o inizia una nuova chat"> </div>
             </div>   
             <div class=" row justify-content-start">
-                <div class="col-4 listaContatti"> 
+                <div class="col-4 lista-contatti"> 
                     <img src="img/avatar_2.jpg " class="rounded-circle" alt="immagine">
                     <span> <strong>Michele</strong> </span>
                 </div>
             </div>
             <div class=" row justify-content-start">
-                <div class="col-4 listaContatti"> 
-
+                <div class="col-4 lista-contatti"> 
+                    <img src="img/avatar_2.jpg " class="rounded-circle" alt="immagine">
+                    <span> <strong>Michele</strong> </span>
                 </div>
             </div>
-            <div class=" row justify-content-start">
-                <div class="col-4 listaContatti"> 
-                    
+           <!--  <div class=" row justify-content-start ">
+                <div  class="col-4 lista-contatti" id="contatti"
+                    v:for="contact in contacts" 
+                    :key="contact.id" 
+                    @changhe="selezionaContatto($event)"
+                    value= "contact.name"
+                    >
+                    <img v-bind:src= "contact.avatar"  class="rounded-circle " alt="">
+                    <h4>{{contacts.[message.name]}}</h4> 
+                    <span>{{contacts.text[0].}}</span>  
                 </div>
-            </div>
+            </div>  -->
             
+          
             <div class="row justify-content-end">
                 <div class="col-8 chat-space" >
                     <div class="container">
-                        <div class="row">
-                            <div class="col align-self-start chatContainerSinistra ">
-                               <div>  <p> One of three columns </p> </div> 
-                            </div>       
-                            <div class="col align-self-end chatContainerDestra">
-                                <div> Hai portato a spasso il cane?</div>
-                            </div>
-                        </div>
+                        <!-- chat sinistra -->
+                        <ul class="row justify-content-start ">
+                            <li class="col-5 chat-container-sinistra">
+                              Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                            </li>
+                        </ul>
+                        <!-- chat destra -->
+                        <ul class="row justify-content-end ">
+                            <li class="col-5 chat-container-destra">
+                              destraaaLorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                            </li>
+                        </ul>
                     </div>
-                    <div class="container">>
-                        <div class="row justify-content-end">
-                            <div class="col-8 chat-space footerCharBar" >
 
-                            </div>
+                    <!-- footer chatbar -->
+                    <div class="container " >
+                        <div class="row justify-content-start ">
+                          
+                            <div class="col-10   footer-chat-bar" >
+                                <div class="col-1 justify-content-start " >  <i class="bi bi-emoji-smile icone"></i>   </div>
+                                    <input  type="text" class="place-holder-messaggio " placeholder="scrivi un messaggio">
+                                <div class="col-1 justify-content-end " >    <i class="bi bi-mic-fill icone"></i> </div>
+                             </div>
                         </div>
                     </div>
-            
                 </div>
             </div>
-        </div>
+        </div>  
      
         
     </div>
