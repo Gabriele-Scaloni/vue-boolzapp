@@ -76,11 +76,10 @@
                 v-for="(contact, i) in contacts"
                 :key="i"
                 value= "contact.name"
-                @changhe="selezionaContatto($event)">
+                > 
                 <div  class="col-4 lista-contatti" id="contatti">    
-                    <img v-bind:src= "contact.avatar"  class="rounded-circle " alt="">
-                    <h4>{{contact.[message.name]}}</h4> 
-                    <span>{{ contact.name }}</span>   
+                    <img :src= "contact.avatar"  class="rounded-circle " alt="">
+                    <h4>{{contact.name}}</h4>                   
                 </div>
             </div>  
             
@@ -115,9 +114,7 @@
                     </div>
                 </div>
             </div>
-        </div>  
-     
-        
+        </div>     
     </div>
 
 

@@ -11,7 +11,7 @@ messaggi relativi al contatto attivo all’interno del pannello della conversazi
 
 var app = new Vue({
     el: '#app',
-    
+
 contacts: [
     {
     name: 'Michele',
