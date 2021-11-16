@@ -32,9 +32,9 @@
                 <div class="col-8 navchat destra" > 
                     <div class="row">
                         <div class="col-10 ">
-                            <img src="img/avatar_2.jpg " class="rounded-circle" alt="immagine">
+                            <img src="img/avatar_1.jpg " class="rounded-circle " alt="immagine">
                             <span class="nome-utente"> <strong>Michele</strong> </span>
-                            <p class="ultimoAccesso">Ultimo accesso oggi 15/11/2021 alle ore 12:54</p>
+                            <p class="ultimo-accesso">Ultimo accesso oggi 15/11/2021 alle ore 12:54</p>
                         </div>
                         <div class="col-2 align-self-center">
                             <i class="bi bi-search icone" ></i>
@@ -58,45 +58,36 @@
             </div> 
 
             <div class=" row justify-content-start">
-                <div class="col-4 "> <input class="cerca-contatti" type="text" placeholder="cerca o inizia una nuova chat"> </div>
+                <div class="col-4 "> <input type="text" id="barra-ricerca" onkeyup="ricerca()" class="cerca-contatti"  placeholder="cerca o inizia una nuova chat"> </div>
             </div>   
-            <div class=" row justify-content-start">
-                <div class="col-4 lista-contatti"> 
-                    <img src="img/avatar_2.jpg " class="rounded-circle" alt="immagine">
-                    <span> <strong>Michele</strong> </span>
-                </div>
-            </div>
-            <div class=" row justify-content-start">
-                <div class="col-4 lista-contatti"> 
-                    <img src="img/avatar_2.jpg " class="rounded-circle" alt="immagine">
-                    <span> <strong>Michele</strong> </span>
-                </div>
-            </div>
-            <div class=" row justify-content-start"
+         
+            <div class=" row justify-content-start" 
+                id="elenco"
                 v-for="(contact, i) in contacts"
-                :key="i"
-                value= "contact.name"
-                > 
+                :key="i">
                 <div  class="col-4 lista-contatti" id="contatti">    
-                    <img :src= "contact.avatar"  class="rounded-circle " alt="">
-                    <h4>{{contact.name}}</h4>                   
-                </div>
+                    <img :src= "contact.avatar"  class="rounded-circle foto-profilo" alt="immagine avatar">
+                    <span class="" ><strong>{{contact.name}}</strong> </span>                   
+                    <span class=" data">{{contact.messages[0].date}}</span>
+                    <p class="testo">{{contact.messages[0].text}}</p> 
+                </div>        
             </div>  
             
           
             <div class="row justify-content-end">
                 <div class="col-8 chat-space" >
                     <div class="container">
-                        <!-- chat sinistra -->
+                        <!-- chat sinistra ricevuta-->
                         <ul class="row justify-content-start ">
-                            <li class="col-5 chat-container-sinistra">
-                              Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                            <li class="col-5 chat-container-sinistra" >
+                          
+                                <p></p> 
                             </li>
                         </ul>
-                        <!-- chat destra -->
+                        <!-- chat destra inviata-->
                         <ul class="row justify-content-end ">
                             <li class="col-5 chat-container-destra">
-                              destraaaLorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                              <p> destraaaLorem ipsum dolor sit amet, consectetur adipisicing elit.</p> 
                             </li>
                         </ul>
                     </div>
