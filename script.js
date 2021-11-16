@@ -11,7 +11,7 @@ messaggi relativi al contatto attivo all’interno del pannello della conversazi
 
 var app = new Vue({
     el: '#app',
-
+    data: {
 contacts: [
     {
     name: 'Michele',
@@ -80,7 +80,7 @@ contacts: [
         ],
         },
     {
-    name: 'Luisa',
+    name: 'Luis',
     avatar: 'img/avatar_4.jpg',
     visible: true,
     messages: [
@@ -96,13 +96,33 @@ contacts: [
         }
     ],
     },
-    /* selezionaContatto:null, */
+    
 ]   
 
-/*     methods : {
-        selezionaContatto(event)
-        this.selezionaContatto = event.target.messages;
+
     }
- */
 })
+
+function ricerca() {
+    var input; 
+    var filtro;
+    var lista;
+    var voci;
+    var x;
+    var i;
+    var testo;
+      input = document.getElementById("barra-ricerca");
+      filtro = input.value.toUpperCase();
+      lista = document.getElementById("elenco");
+      voci = lista.getElementsByTagName("div");
+      for (i = 0; i < voci.length; i++) {
+        x = lista.getElementsByTagName("div")[i];
+        testo = x.textContent || x.innerText;
+        if (testo.toUpperCase().indexOf(filtro) > -1) {
+          voci[i].style.display = "";
+        } else {
+          voci[i].style.display = "none";
+        }
+      }
+    }
 
