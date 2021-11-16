@@ -72,18 +72,17 @@
                     <span> <strong>Michele</strong> </span>
                 </div>
             </div>
-            <div class=" row justify-content-start ">
-                <div  class="col-4 lista-contatti" id="contatti"
-                    v-for="(contact, i) in contacts" 
-                    :key="i"
-                    @changhe="selezionaContatto($event)"
-                    value= "contact.name"
-                    >
+            <div class=" row justify-content-start"
+                v-for="(contact, i) in contacts"
+                :key="i"
+                value= "contact.name"
+                @changhe="selezionaContatto($event)">
+                <div  class="col-4 lista-contatti" id="contatti">    
                     <img v-bind:src= "contact.avatar"  class="rounded-circle " alt="">
-                    <h4>{{contacts.[message.name]}}</h4> 
-                    <span>{{contacts.text[0].}}</span>  
+                    <h4>{{contact.[message.name]}}</h4> 
+                    <span>{{ contact.name }}</span>   
                 </div>
-            </div>  -->
+            </div>  
             
           
             <div class="row justify-content-end">
