@@ -72,10 +72,10 @@
                     <span> <strong>Michele</strong> </span>
                 </div>
             </div>
-           <!--  <div class=" row justify-content-start ">
+            <div class=" row justify-content-start ">
                 <div  class="col-4 lista-contatti" id="contatti"
-                    v:for="contact in contacts" 
-                    :key="contact.id" 
+                    v-for="(contact, i) in contacts" 
+                    :key="i"
                     @changhe="selezionaContatto($event)"
                     value= "contact.name"
                     >
