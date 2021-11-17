@@ -12,6 +12,7 @@ messaggi relativi al contatto attivo all’interno del pannello della conversazi
 var app = new Vue({
     el: '#app',
     data: {
+      contactActive:0,
 contacts: [
     {
     name: 'Michele',
@@ -95,9 +96,8 @@ contacts: [
         status: 'received'
         }
     ],
-   contactActive:0,
+   
    },
-
   ],  
   newMessage: [
       {
@@ -115,18 +115,41 @@ contacts: [
 ],
   
 },
-},
-) 
+methods: {
+  changeUser(index) {
+    this.contactActive = index;
+  },
+
+//scrivo un nuovo messaggio
+ addMessage  (){
+  this.contacts.push(this.newMessage); 
+     this.newMessage = {
+     date: '',
+     text:'',
+     status: 'sent'
+ }   
+}, 
+//ricevo un nuovo messaggio
+/* recivedMessage  (){
+  this.contacts.push(this.newMessageRecived); 
+     this.newMessageRecived = {
+     date: '',
+     text:'',
+     status: 'received'
+ }   
+} */
 
 
-/*    addMessage  (index){
+}
+}) 
+/*     addMessage  (index){
     this.messages.push(this.newMessage); 
        this.newMessage = {
        text:'',
        status: 'sent'
    },   
 }
- */
+  */
 
 /*  
   messaggioVisible (index){}
@@ -138,14 +161,7 @@ contacts: [
  
 
 
-
-
-
-
-
-
-
-/* function ricerca() {
+ /* function ricerca() {
     var input; 
     var filtro;
     var lista;
@@ -155,7 +171,7 @@ contacts: [
     var testo;
       input = document.getElementById("barra-ricerca");
       filtro = input.value.toUpperCase();
-      lista = document.getElementById("elenco");
+      lista = document.getElementById("elencoContatti");
       voci = lista.getElementsByTagName("div");
       for (i = 0; i < voci.length; i++) {
         x = lista.getElementsByTagName("div")[i];
@@ -166,7 +182,7 @@ contacts: [
           voci[i].style.display = "none";
         }
       }
-    } */
+    }  */
 
 /* getNow() {
                 const today = new Date();
