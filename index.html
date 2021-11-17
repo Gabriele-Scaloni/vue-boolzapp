@@ -31,10 +31,13 @@
                 </div>
                 <div class="col-8 navchat destra" > 
                     <div class="row">
-                        <div class="col-10 ">
-                            <img src="img/avatar_1.jpg " class="rounded-circle " alt="immagine">
-                            <span class="nome-utente"> <strong>Michele</strong> </span>
-                            <p class="ultimo-accesso">Ultimo accesso oggi 15/11/2021 alle ore 12:54</p>
+                        <div class="col-10 "
+                        v-for="(contact, i) in contacts"
+                            :key="i">
+                            <img 
+                            :src="contact.avatar" class="rounded-circle " alt="immagine">
+                            <span class="nome-utente"> <strong>{{contact.name}}</strong> </span>
+                            <p class="ultimo-accesso">Ultimo accesso </p>
                         </div>
                         <div class="col-2 align-self-center">
                             <i class="bi bi-search icone" ></i>
@@ -48,7 +51,7 @@
             <div class=" row justify-content-start ">
                 <div class="col-4 notifiche"> 
                     <div class="col-12 d-flex align-items-center">
-                        <i class="bi bi-bell-slash-fill margin-left-notifiche"></i>
+                        <i class="bi bi-bell-slash-fill margin-left-notifiche icone"></i>
                         <div>
                             <span class="align-middle">Ricevi notifiche di nuovi messaggi</span> 
                             <p class="notifiche-desktop align-middle">attiva notifiche desktop</p>
@@ -57,19 +60,18 @@
                 </div>   
             </div> 
 
-            <div class=" row justify-content-start">
-                <div class="col-4 "> <input type="text" id="barra-ricerca" onkeyup="ricerca()" class="cerca-contatti"  placeholder="cerca o inizia una nuova chat"> </div>
+            <div class="  justify-content-start">
+                <div class="col-4 ">  <i class="bi bi-search icone cursor-on"></i><input type="text" id="barra-ricerca" onkeyup="ricerca()" class="cerca-contatti"  placeholder="cerca o inizia una nuova chat"> </div>
             </div>   
          
-            <div class=" row justify-content-start" 
+            <div class=" row justify-content-start " 
                 id="elenco"
                 v-for="(contact, i) in contacts"
                 :key="i">
-                <div  class="col-4 lista-contatti" id="contatti">    
-                    <img :src= "contact.avatar"  class="rounded-circle foto-profilo" alt="immagine avatar">
+                <div  class="col-4 lista-contatti clearfix" id="contatti">    
+                    <img :src= "contact.avatar"   class="rounded-circle foto-profilo" @click="" alt="immagine avatar">
                     <span class="" ><strong>{{contact.name}}</strong> </span>                   
-                    <span class=" data">{{contact.messages[0].date}}</span>
-                    <p class="testo">{{contact.messages[0].text}}</p> 
+                    <span class=" data">{{contact.messages[0].date}}</span> 
                 </div>        
             </div>  
             
@@ -80,14 +82,17 @@
                         <!-- chat sinistra ricevuta-->
                         <ul class="row justify-content-start ">
                             <li class="col-5 chat-container-sinistra" >
-                          
-                                <p></p> 
+                                <p v-for="(contact, i) in contacts"
+                                :key="i">
+                                {{contact.messages[0].text}} </p>
                             </li>
                         </ul>
                         <!-- chat destra inviata-->
                         <ul class="row justify-content-end ">
                             <li class="col-5 chat-container-destra">
-                              <p> destraaaLorem ipsum dolor sit amet, consectetur adipisicing elit.</p> 
+                              <p v-for="(contact, i) in contacts"
+                              :key="i">
+                              {{contact.messages[0].text}} </p> 
                             </li>
                         </ul>
                     </div>
@@ -98,7 +103,7 @@
                           
                             <div class="col-10   footer-chat-bar" >
                                 <div class="col-1 justify-content-start " >  <i class="bi bi-emoji-smile icone"></i>   </div>
-                                    <input  type="text" class="place-holder-messaggio " placeholder="scrivi un messaggio">
+                                    <input  type="text" class="place-holder-messaggio " placeholder="scrivi un messaggio"  @click ="addMessage()">
                                 <div class="col-1 justify-content-end " >    <i class="bi bi-mic-fill icone"></i> </div>
                              </div>
                         </div>

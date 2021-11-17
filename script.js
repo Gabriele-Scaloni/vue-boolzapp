@@ -95,15 +95,57 @@ contacts: [
         status: 'received'
         }
     ],
-    },
-    
-]   
+   contactActive:0,
+   },
 
-
+  ],  
+  newMessage: [
+      {
+      date: '',
+      text: '',
+      status: 'sent'
     }
-})
+  ],
+  newMessageRecived: [
+    {
+    date: '',
+    text: '',
+    status: 'received'
+  },
+],
+  
+},
+},
+) 
 
-function ricerca() {
+
+/*    addMessage  (index){
+    this.messages.push(this.newMessage); 
+       this.newMessage = {
+       text:'',
+       status: 'sent'
+   },   
+}
+ */
+
+/*  
+  messaggioVisible (index){}
+  let contatto = this.contacts[this.contactActive];
+  let messaggio = 'message' + contatto.messaggio
+  return messaggio;
+
+},  */
+ 
+
+
+
+
+
+
+
+
+
+/* function ricerca() {
     var input; 
     var filtro;
     var lista;
@@ -124,5 +166,13 @@ function ricerca() {
           voci[i].style.display = "none";
         }
       }
-    }
+    } */
 
+/* getNow() {
+                const today = new Date();
+                const date = today.getDate() +'/'+(today.getMonth()+1)+'/'+ today.getFullYear();
+                const time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+                const dateTime = date +' '+ time;
+                this.dateNow = dateTime;
+            }
+ */
