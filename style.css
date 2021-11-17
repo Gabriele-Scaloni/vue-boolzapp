@@ -94,6 +94,7 @@ img {
 .foto-profilo {
     cursor: pointer;
 }
+
 .data {
     font-size: 12px;
     color: rgb(156, 156, 156);
@@ -106,27 +107,36 @@ img {
     margin-bottom: 15px;
     font-size: 14px;
 }
+
 ul {
     list-style-type: none;
 }
+
 li {
     list-style-type: none;
 }
-.chat-container-sinistra {
+
+
+.sent {
+
+    float: right;
     margin: 2px 15px;
     height: auto;
     padding: 3px;
-    background-color: white;
     border-radius: 7px;
+    opacity: 1;
+    background-color: #dcf7c0 ;
 }
 
-.chat-container-destra {
+.received {
+
+    float: left;
     margin: 2px 15px; 
     height: auto;
     padding: 3px;
-    background-color: #c4daae;
     border-radius: 7px;
     opacity: 1;
+    background-color: #ffffff;
 }
 
 .footer-chat-bar {

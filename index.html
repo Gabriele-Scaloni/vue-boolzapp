@@ -70,7 +70,7 @@
                 v-for="(contact, i) in contacts"
                 :key="i">
                 <div  class="col-4 lista-contatti clearfix" id="contatti">    
-                    <img :src= "contact.avatar" class="rounded-circle foto-profilo " @click="changeUser(i)" alt="immagine avatar">
+                    <img :src="contact.avatar" class="rounded-circle foto-profilo " @click="changeUser(i)" alt="immagine avatar">
                     <span class="" ><strong>{{contact.name}}</strong> </span>                   
                     <span class=" data">{{contact.messages[0].date}}</span> 
                 </div>        
@@ -81,9 +81,11 @@
                 <div class="col-8 chat-space" >
                     <div class="container">
                         <!-- chat sinistra ricevuta-->
-                        <ul class="row justify-content-start ">
-                            <li class="col-5 chat-container-sinistra"
+                        <ul class="col-5 ">
+                            <!-- se message.status è sent metto una classe, altrimenti ne metto un'altra -->
+                            <li class="col-12"  
                              v-for="(message, i) in contacts[contactActive].messages"
+                             :class="message.status"
                             :key="i">
                                 <p > {{message.text}} </p>
                             </li>
@@ -96,7 +98,7 @@
                           
                             <div class="col-10   footer-chat-bar" >
                                 <div class="col-1 justify-content-start " >  <i class="bi bi-emoji-smile icone"></i>   </div>
-                                    <input  type="text" class="place-holder-messaggio" @click ="addMessage()" placeholder="scrivi un messaggio"  @click ="addMessage()">
+                                    <input  type="text" class="place-holder-messaggio" @keyup.enter="addMessage" placeholder="scrivi un messaggio" v-model="newMessage.text">
                                 <div class="col-1 justify-content-end " >    <i class="bi bi-mic-fill icone"></i> </div>
                              </div>
                         </div>
