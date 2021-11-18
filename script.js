@@ -104,51 +104,79 @@ var app = new Vue({
       text: '',
       status: 'sent'
     },
-    newMessageRecived: {
+    newMessageReceived:  {
       date: '',
       text: 'ok!',
-      status: 'received'
+      status: 'received' 
     },
   },
-  methods: {
+
+
+  methods: { //seleziono l'utente
     changeUser(index) {
       this.contactActive = index;
     },
+
     //scrivo un nuovo messaggio
     addMessage() {
       this.contacts[this.contactActive].messages.push(this.newMessage);
-      this.newMessage = {
+       this.newMessage = {
         date: '',
-        text: '',
+        text: '', 
         status: 'sent'
-      }
-    },
+      } 
 
-  }
+    setTimeout(() => {
+      this.contacts[this.contactActive].messages.push(this.newMessageReceived);
+      this.newMessageReceived =({
+        text: 'ok!',
+        date:'',
+        status: 'received'
+      });
+    }, 1000);
+    },
+  },
+
+
 })
 
+  
+function myFunction() {
+  var input, filter, div, span, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  div = document.getElementById("myDiv");
+  span = div.getElementsByTagName("span");
+  for (i = 0; i < span.length; i++) {
+      a = span[i].getElementsByTagName("a")[0];
+      txtValue = a.textContent || a.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          span[i].style.display = "";
 
-
-/* function ricerca() {
-    var input;
-    var filtro;
-    var lista;
-    var voci;
-    var x;
-    var i;
-    var testo;
-      input = document.getElementById("barra-ricerca");
-      filtro = input.value.toUpperCase();
-      lista = document.getElementById("elencoContatti");
-      voci = lista.getElementsByTagName("div");
-      for (i = 0; i < voci.length; i++) {
-        x = lista.getElementsByTagName("div")[i];
-        testo = x.textContent || x.innerText;
-        if (testo.toUpperCase().indexOf(filtro) > -1) {
-          voci[i].style.display = "";
-        } else {
-          voci[i].style.display = "none";
-        }
+      } else {
+          span[i].style.display = "none";
+          
       }
-    }   */
 
+  }
+}
+
+
+
+
+/* function myFunction() {
+  var input, filter, ul, li, a, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  ul = document.getElementById("myUL");
+  li = ul.getElementsByTagName("li");
+  for (i = 0; i < li.length; i++) {
+      a = li[i].getElementsByTagName("a")[0];
+      txtValue = a.textContent || a.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          li[i].style.display = "";
+      } else {
+          li[i].style.display = "none";
+      }
+  }
+} */
