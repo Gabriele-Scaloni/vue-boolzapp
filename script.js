@@ -137,7 +137,7 @@ var app = new Vue({
       }, 1000);
     },
     
-       search() {
+        search() {
        // se searchInput è vuoto, ritorna tutti i contatti
        // altrimenti ritorna tutti i contatti che hanno nel 
        //name incluso il valore di searchInput
@@ -145,9 +145,11 @@ var app = new Vue({
        if (this.searchInput === '') {
         return this.contacts
       } else {
-        return this.contacts[this.index].includes(this.searchInput);
+        return this.contacts.name[this.index].includes(this.searchInput);
       }
-    },
+    }, 
+
+    
   }
 
 })
