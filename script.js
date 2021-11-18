@@ -141,32 +141,15 @@ var app = new Vue({
        // se searchInput è vuoto, ritorna tutti i contatti
        // altrimenti ritorna tutti i contatti che hanno nel 
        //name incluso il valore di searchInput
-      if (this.searchInput === null) {
+      
+       if (this.searchInput === '') {
         return this.contacts
-      } else 
-
-    
+      } else {
+        return this.contacts[this.index].includes(this.searchInput);
+      }
     },
   }
 
 })
 
-
-
-/* function myFunction() {
-  var input, filter, div, span, i, txtValue;
-  input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
-  div = document.getElementById("myDiv");
-  span = div.getElementsByTagName("span");
-  for (i = 0; i < span.length; i++) {
-      a = span[i].getElementsByTagName("a")[0];
-      txtValue = a.textContent || a.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-          span[i].style.display = "";
-      } else {
-          span[i].style.display = "none";
-      }
-  }
-} */
   

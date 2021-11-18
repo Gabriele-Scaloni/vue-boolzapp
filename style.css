@@ -55,12 +55,13 @@ img {
 
 .chat-space {
     margin-top: 20px;
-    height: 80vh;
+    height: 435px;
     background-image:url("https://i.redd.it/qwd83nc4xxf41.jpg");
     border-left: 1px solid rgb(165, 165, 165);;
     opacity: 0.6;
     position: absolute;
     top: 60px;
+    overflow: auto;
 }
 
 .bi-bell-slash-fill {
@@ -108,19 +109,18 @@ img {
     font-size: 14px;
 }
 
-ul {
-    list-style-type: none;
+a {
+    text-decoration: none;
+    color: black;
 }
 
 li {
     list-style-type: none;
 }
 
-
 .sent {
-
     float: right;
-    margin: 2px 15px;
+    margin: 2px 15px  2px 15%;
     height: auto;
     padding: 3px;
     border-radius: 7px;
@@ -129,9 +129,8 @@ li {
 }
 
 .received {
-
     float: left;
-    margin: 2px 15px; 
+    margin: 2px 15px 2px 30px; 
     height: auto;
     padding: 3px;
     border-radius: 7px;

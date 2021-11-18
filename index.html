@@ -11,7 +11,6 @@
 
 </head>
 <body>
-
     <div class="background-color-body" id="app">
         <!-- nav -->
         <div class="contenitore-principale container">
@@ -22,32 +21,31 @@
                             <img src="img/avatar_io.jpg" class="rounded-circle" alt="img profilo">
                             <span> <strong>Nome Utente</strong></span> 
                         </div>
-                        <div class="col-4  "> 
+                        <div class="col-4"> 
                             <i class="bi bi-chat-left-fill icone "></i>
                             <i class="bi bi-chat-left-fill icone "></i>
                             <i class="bi bi-three-dots-vertical icone "></i>
                         </div>
                     </div>
                 </div>
-                <div class="col-8 navchat destra" > 
+                <div class="col-8 navchat destra"> 
                     <div class="row">
-                        <div class="col-10 ">
+                        <div class="col-10">
                             <img 
                             :src="contacts[contactActive].avatar" class="rounded-circle " alt="immagine">
-                            <span class="nome-utente"> <strong>{{contacts[contactActive].name}}</strong> </span>
+                            <span class="nome-utente"> <strong>{{contacts[contactActive].name}}</strong></span>
                             <p class="ultimo-accesso">Ultimo accesso </p>
                         </div>    
-                        <div class="col-2 ">
-                            <i class="bi bi-search icone ic-float" ></i>
+                        <div class="col-2">
+                            <i class="bi bi-search icone ic-float"></i>
                             <i class="bi bi-search icone"></i>
-                            <i class="bi bi-three-dots-vertical icone" ></i>
+                            <i class="bi bi-three-dots-vertical icone"></i>
                         </div>
-
                     </div>
                 </div>
             </header> 
           <!-- ricevi notifiche -->
-            <div class=" row justify-content-start ">
+            <div class="row justify-content-start ">
                 <div class="col-4 notifiche"> 
                     <div class="col-12 d-flex align-items-center">
                         <i class="bi bi-bell-slash-fill margin-left-notifiche icone"></i>
@@ -59,46 +57,49 @@
                 </div>   
             </div> 
             <!-- placeholder ricerca utenti -->
-            <div class="  justify-content-start">
-                <div class="col-4 ">  <i class="bi bi-search icone cursor-on"></i><input type="text" class="cerca-contatti" id="myInput" onkeyup="myFunction()" placeholder="cerca o inizia una nuova chat"> 
+            <div class="justify-content-start">
+                <div class="col-4 ">
+                    <i class="bi bi-search icone cursor-on"></i>
+                    <input type="text" class="cerca-contatti" 
+                    v-model="searchInput" 
+                    placeholder="cerca o inizia una nuova chat"> 
                 </div>
             </div>   
          
             <!-- lista utenti -->
-            <div  class=" row justify-content-start "
+            <div class=" row justify-content-start "
                 id="myDiv"
-                v-for="(contact, i) in contacts"
+                v-for="(contact, i) in search()"
                 :key="i">
-                <div  class="col-4 lista-contatti clearfix">    
-                 <a href="#"><img :src="contact.avatar" class="rounded-circle foto-profilo " @click="changeUser(i)" alt="immagine avatar">
-                    <span ><strong>{{contact.name}}</strong> </span>                   
+                 
+                <div class="col-4 lista-contatti clearfix">    
+                    <span><img :src="contact.avatar" class="rounded-circle foto-profilo " @click="changeUser(i)" alt="immagine avatar">  
+                    <strong>{{contact.name}}</strong></span>                   
                     <span class=" data">{{contact.messages[0].date}}</span> 
-                </a></div> 
-            </div>  
-            
+                </div> 
+            </div>         
             <!-- scambio messaggi -->
             <div class="row justify-content-end">
-                <div class="col-8 chat-space" >
-                    <div class="container ">
+                <div class="col-8 chat-space">
+                    <div class="container">
                         <!-- chat sinistra ricevuta-->
-                        <ul class=" col-8 clearfix ">
+                        <ul class=" col-8 clearfix">
                             <!-- se message.status è sent metto una classe, altrimenti ne metto un'altra -->
-                            <li class=" col-5 "  
+                            <li class="col-5"  
                              v-for="(message, i) in contacts[contactActive].messages"
                              :class="message.status"
                             :key="i">
-                                <p> {{message.text}} </p>
+                                <p>{{message.text}}</p>
                             </li>
                         </ul>
                     </div>
-
                     <!-- footer chatbar -->
-                    <div class="container " >
-                        <div class="row justify-content-end "> 
-                            <div class="col-8 footer-chat-bar" >
-                                <div class="col-1 justify-content-start " >  <i class="bi bi-emoji-smile icone"></i>   </div>
+                    <div class="container">
+                        <div class="row justify-content-end"> 
+                            <div class="col-8 footer-chat-bar">
+                                <div class="col-1 justify-content-start"> <i class="bi bi-emoji-smile icone"></i> </div>
                                     <input  type="text" class="place-holder-messaggio" @keyup.enter="addMessage" placeholder="scrivi un messaggio" v-model="newMessage.text">
-                                <div class="col-1 justify-content-end " >    <i class="bi bi-mic-fill icone"></i> </div>
+                                <div class="col-1 justify-content-end"> <i class="bi bi-mic-fill icone"></i> </div>
                             </div>
                         </div>
                     </div>
