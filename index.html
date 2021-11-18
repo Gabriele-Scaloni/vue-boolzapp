@@ -13,7 +13,7 @@
 <body>
 
     <div class="background-color-body" id="app">
-
+        <!-- nav -->
         <div class="contenitore-principale container">
             <header class="row">
                 <div class="col-4 navchat nome-utente"> 
@@ -46,7 +46,7 @@
                     </div>
                 </div>
             </header> 
-         
+          <!-- ricevi notifiche -->
             <div class=" row justify-content-start ">
                 <div class="col-4 notifiche"> 
                     <div class="col-12 d-flex align-items-center">
@@ -58,20 +58,22 @@
                     </div> 
                 </div>   
             </div> 
-
+            <!-- placeholder ricerca utenti -->
             <div class="  justify-content-start">
-                <div class="col-4 ">  <i class="bi bi-search icone cursor-on"></i><input type="text" class="cerca-contatti" id="myInput" onkeyup="myFunction()" placeholder="cerca o inizia una nuova chat"> </div>
+                <div class="col-4 ">  <i class="bi bi-search icone cursor-on"></i><input type="text" class="cerca-contatti" id="myInput" onkeyup="myFunction()" placeholder="cerca o inizia una nuova chat"> 
+                </div>
             </div>   
          
             <!-- lista utenti -->
-            <div  class=" row justify-content-start " 
+            <div  class=" row justify-content-start "
+                id="myDiv"
                 v-for="(contact, i) in contacts"
                 :key="i">
-                <div  class="col-4 lista-contatti clearfix"   id="myDiv">    
-                    <img :src="contact.avatar" class="rounded-circle foto-profilo " @click="changeUser(i)" alt="immagine avatar">
-                    <span ><strong><a href="#">{{contact.name}}</a></strong> </span>                   
+                <div  class="col-4 lista-contatti clearfix">    
+                 <a href="#"><img :src="contact.avatar" class="rounded-circle foto-profilo " @click="changeUser(i)" alt="immagine avatar">
+                    <span ><strong>{{contact.name}}</strong> </span>                   
                     <span class=" data">{{contact.messages[0].date}}</span> 
-                </div>        
+                </a></div> 
             </div>  
             
             <!-- scambio messaggi -->
