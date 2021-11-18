@@ -109,6 +109,7 @@ var app = new Vue({
       text: 'ok!',
       status: 'received' 
     },
+    searchInput: ""
   },
 
 
@@ -126,38 +127,46 @@ var app = new Vue({
         status: 'sent'
       } 
       //dopo un sec arriva la risposta 
-    setTimeout(() => {
-      this.contacts[this.contactActive].messages.push(this.newMessageReceived);
-      this.newMessageReceived =({
-        text: 'ok!',
-        date:'',
-        status: 'received'
-      });
-    }, 1000);
+      setTimeout(() => {
+        this.contacts[this.contactActive].messages.push(this.newMessageReceived);
+        this.newMessageReceived =({
+          text: 'ok!',
+          date:'',
+          status: 'received'
+        });
+      }, 1000);
     },
-  },
+    
+       search() {
+       // se searchInput è vuoto, ritorna tutti i contatti
+       // altrimenti ritorna tutti i contatti che hanno nel 
+       //name incluso il valore di searchInput
+      if (this.searchInput === null) {
+        return this.contacts
+      } else 
 
+    
+    },
+  }
 
 })
 
-  
-function myFunction() {
-  var input, filter, div, r, txtValue;
+
+
+/* function myFunction() {
+  var input, filter, div, span, i, txtValue;
   input = document.getElementById("myInput");
   filter = input.value.toUpperCase();
   div = document.getElementById("myDiv");
-  div = div.getElementsByTagName("div");
-  for (r = 0; r < div.length; r++) {
-      a = div[r].getElementsByTagName("a")[0];
+  span = div.getElementsByTagName("span");
+  for (i = 0; i < span.length; i++) {
+      a = span[i].getElementsByTagName("a")[0];
       txtValue = a.textContent || a.innerText;
       if (txtValue.toUpperCase().indexOf(filter) > -1) {
-          div[r].style.display = "";
-        
+          span[i].style.display = "";
       } else {
-          div[r].style.display = "none";
-
+          span[i].style.display = "none";
       }
-
   }
-}
-
+} */
+  
