@@ -109,8 +109,9 @@ var app = new Vue({
       text: 'ok!',
       status: 'received' 
     },
-    searchInput: ""
+    searchInput: ''
   },
+
 
 
   methods: {  //seleziono l'utente
@@ -137,21 +138,19 @@ var app = new Vue({
       }, 1000);
     },
     
-        search() {
-       // se searchInput è vuoto, ritorna tutti i contatti
-       // altrimenti ritorna tutti i contatti che hanno nel 
-       //name incluso il valore di searchInput
-      
-       if (this.searchInput === '') {
+    search() {
+      // se searchInput è vuoto, ritorna tutti i contatti
+      // altrimenti ritorna tutti i contatti che hanno nel 
+      //name incluso il valore di searchInput
+      /* const findPerson =this.contacts.name.find((contact)=>) */
+
+      if (this.searchInput === '') {
         return this.contacts
       } else {
-        return this.contacts.name[this.index].includes(this.searchInput);
-      }
-    }, 
-
-    
+        //non posso usare l'include, l'include fa tornare un oggetto, il find un array, il find cicla e ci restituisce l'occorrezza oppure null
+        return  this.contacts.find(searchInput)
+       
+      }          
+    },  
   }
-
 })
-
-  
