@@ -68,7 +68,6 @@
          
             <!-- lista utenti -->
             <div class=" row justify-content-start "
-                id="myDiv"
                 v-for="(contact, i) in search()"
                 :key="i">
                  
@@ -95,9 +94,9 @@
                     </div>
                     <!-- footer chatbar -->
                     <div class="container">
-                        <div class="row justify-content-end"> 
+                        <div class="row justify-content-end "> 
                             <div class="col-8 footer-chat-bar">
-                                <div class="col-1 justify-content-start"> <i class="bi bi-emoji-smile icone"></i> </div>
+                                <div class="col-1 justify-content-start cont-place-holder-messaggio"> <i class="bi bi-emoji-smile icone"></i> </div>
                                     <input  type="text" class="place-holder-messaggio" @keyup.enter="addMessage" placeholder="scrivi un messaggio" v-model="newMessage.text">
                                 <div class="col-1 justify-content-end"> <i class="bi bi-mic-fill icone"></i> </div>
                             </div>
